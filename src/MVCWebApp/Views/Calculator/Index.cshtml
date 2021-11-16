@@ -1,0 +1,62 @@
+﻿@using Accelerantx.MVCWebApp.Models
+@model Accelerantx.MVCWebApp.Models.Calculation
+
+@{
+    ViewBag.Title = "Calculator";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Simple Calculator</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Input1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Input1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Input1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Operator, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(m => m.Operator,
+                    new SelectList(Enum.GetValues(typeof(Operation))),
+                    "Select Operation",
+                    new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Input2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Input2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Input2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+
+        @if (Model?.Result != null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Result, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="alert alert-success">
+                        @Html.DisplayFor(m => m.Result, new { htmlAttributes = new { @class = "alert alert-success" } })
+                    </div> 
+                </div>
+            </div>  
+        }
+    </div>
+}

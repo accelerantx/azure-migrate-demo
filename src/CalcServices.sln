@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfCalculatorService", "WcfCalculatorService\WcfCalculatorService.csproj", "{69B5424A-9908-4064-BC8F-4E8BBFA30BD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWebApp", "MVCWebApp\MVCWebApp.csproj", "{40292099-54B3-4BC6-9C1D-5B9A4E159F46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69B5424A-9908-4064-BC8F-4E8BBFA30BD8} = {69B5424A-9908-4064-BC8F-4E8BBFA30BD8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
