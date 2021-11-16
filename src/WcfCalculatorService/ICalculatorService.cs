@@ -1,8 +1,8 @@
 ﻿using System.ServiceModel;
 
-namespace WcfCalculatorService
+namespace Accelerantx.WcfCalculatorService
 {
-    [ServiceContract(Namespace = "http://accelerantx.ServiceModel.Samples")]
+    [ServiceContract(Namespace = "http://Accelerantx.ServiceModel")]
     public interface ICalculator
     {
         [OperationContract]
